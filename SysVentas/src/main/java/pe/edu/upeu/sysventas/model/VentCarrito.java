@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VentCarrito {
+<<<<<<< HEAD
     private Long idCarrito;
     private String dniCliente;
     private Defunciones idDefuncion;
@@ -19,6 +20,16 @@ public class VentCarrito {
     private Double porceUtil;
     private Integer cantidad;
     private Double netoTotal;
+=======
+
+    private Long idCarrito;
+    private String dniruc;
+    private Producto idProducto;
+    private String nombreProducto;
+    private Double cantidad;
+    private Double punitario;
+    private Double ptotal;
+>>>>>>> ea262d381fc3af93599530def55fe13f027ea75e
     private int estado;
     private Usuario idUsuario;
 }
