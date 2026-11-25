@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="miContenedor" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.CatalogoController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <AnchorPane maxWidth="1.7976931348623157E308">
+               <children>
+                  <Label layoutX="21.0" layoutY="14.0" text="Panel de Administrador — Precios, Tamaño y Material de Ataúdes y Flores" textFill="#3971c6">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="580.0" layoutY="16.0" text="Filtrar por Modelo o Material:" />
+                  <TextField fx:id="txtFiltroCatalogo" layoutX="755.0" layoutY="12.0" prefWidth="210.0" promptText="Ej. Cedro, Caoba, Rosas..." />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </AnchorPane>
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox spacing="12.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                     <children>
+                        <AnchorPane prefWidth="360.0">
+                           <children>
+                              <GridPane hgap="8.0" vgap="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="120.0" prefWidth="130.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="105.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="105.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="35.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="30.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Agregar / Editar Ataúd o Flores" GridPane.columnSpan="3">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Categoría:" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="cbxTipoArticulo" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                    <Label text="Nombre / Modelo:" GridPane.rowIndex="2" />
+                                    <TextField fx:id="txtNombreArticulo" promptText="Ej. Ataúd Imperial Tallado" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                    <Label text="Tamaño / Medidas:" GridPane.rowIndex="3" />
+                                    <TextField fx:id="txtTamano" promptText="Ej. Grande (2.05m x 0.72m x 0.62m)" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                    <Label text="Material:" GridPane.rowIndex="4" />
+                                    <TextField fx:id="txtMaterial" promptText="Ej. Madera Cedro Rojo con Terciopelo" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                                    <Label text="Precio Unit. (S/):" GridPane.rowIndex="5" />
+                                    <TextField fx:id="txtPrecioUnit" promptText="Ej. 1450.00" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                    <Label text="Porc. Utilidad:" GridPane.rowIndex="6" />
+                                    <TextField fx:id="txtPorceUtil" promptText="Ej. 20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                                    <Label text="Stock Disponible:" GridPane.rowIndex="7" />
+                                    <TextField fx:id="txtStock" promptText="Ej. 15" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#validarFormulario" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" text="Guardar / Actualizar" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearForm" text="Limpiar" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                    <Label fx:id="lbnMsg" maxWidth="1.7976931348623157E308" text="" wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="9" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TableView fx:id="tableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
