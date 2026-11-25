@@ -505,6 +505,7 @@ public class VentaController {
     private void registarPCarrito() {
         Stage stage = StageManager.getPrimaryStage();
         double with = stage != null ? stage.getMaxWidth() / 2 : 400;
+
         if (dniRuc.getText() == null || dniRuc.getText().isBlank()) {
             if (stage != null) Toast.showToast(stage,
                     "Primero seleccione o busque un Cliente por DNI arriba",
@@ -515,13 +516,14 @@ public class VentaController {
         try {
             Defunciones def = obtenerDefuncionSeleccionada();
 
-            Long idArt = (codigoPro.getText() != null && !codigoPro.getText().isBlank())// Numero de clientes
+            Long idArt = (codigoPro.getText() != null && !codigoPro.getText().isBlank())
                     ? Long.parseLong(codigoPro.getText().trim()) : null;
 
-            int cantidad = Integer.parseInt(cantidadPro.getText().trim());//cantidad
-            double precioUnit = Double.parseDouble(punitPro.getText().trim());//Precio
-            double porceUtil = (stockPro.getText() == null || stockPro.getText().isBlank())// Porcentaje de utilidad
-                    ? 15.0 : Double.parseDouble(stockPro.getText().trim());// condiciones valor 1: valor 2
+            int cantidadNueva = Integer.parseInt(cantidadPro.getText().trim());
+            double precioUnit = Double.parseDouble(punitPro.getText().trim());
+
+            double porceUtil = (stockPro.getText() == null || stockPro.getText().isBlank())
+                    ? 15.0 : Double.parseDouble(stockPro.getText().trim());
 
             String infoTamMat = "";
             if (txtTamanoSel != null && !txtTamanoSel.getText().isBlank()) {
@@ -546,7 +548,9 @@ public class VentaController {
 
                 boolean mismoFallecido =
                         item.getIdDefuncion() != null
-                                && Objects.equals(item.getIdDefuncion().getId(), def.getId()
+                                && Objects.equals(
+                                item.getIdDefuncion().getId(),
+                                def.getId()
                         );
 
                 if (mismoArticulo && mismoFallecido) {
@@ -556,7 +560,8 @@ public class VentaController {
             }
 
             if (existente != null) {
-                int nuevaCantidad = existente.getCantidad() + cantidad;
+
+                int nuevaCantidad = existente.getCantidad() + cantidadNueva;
                 existente.setCantidad(nuevaCantidad);
                 existente.setNetoTotal(nuevaCantidad * existente.getPrecioUnit());
 
@@ -567,13 +572,14 @@ public class VentaController {
                         1500, with, 50);
 
             } else {
+
                 // Registrar un producto nuevo
                 VentCarrito ss = VentCarrito.builder()
                         .dniCliente(dniRuc.getText().trim())
                         .idDefuncion(def)
                         .idArticulo(idArt)
                         .nombreFallecido(descripcionCompleta)
-                        .cantidad(cantidad)
+                        .cantidad(cantidadNueva)
                         .precioUnit(precioUnit)
                         .porceUtil(porceUtil)
                         .netoTotal(Double.parseDouble(preTPro.getText().trim()))
@@ -672,7 +678,6 @@ public class VentaController {
         lastCliente = null;
         limpiarFormCliente();
         if (btnRegCliente != null) btnRegCliente.setDisable(true);
-
         if (cbxArticuloFunerario != null) cbxArticuloFunerario.getSelectionModel().clearSelection();
         if (nombreProducto != null) nombreProducto.clear();
         if (txtTamanoSel != null) txtTamanoSel.clear();

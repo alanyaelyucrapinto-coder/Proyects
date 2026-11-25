@@ -46,7 +46,6 @@ public class TableViewHelper<T> {
                 column.setCellValueFactory(new PropertyValueFactory<>(field));
             }
 
-<<<<<<< HEAD
             if ("stock".equalsIgnoreCase(field)) {
                 column.setCellFactory(col -> new TableCell<T, Object>() {
                     @Override
@@ -72,8 +71,6 @@ public class TableViewHelper<T> {
                 });
             }
 
-=======
->>>>>>> ea262d381fc3af93599530def55fe13f027ea75e
             if (entry.getValue().getWidth() != null) {
                 column.setPrefWidth(entry.getValue().getWidth());
             }

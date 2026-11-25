@@ -7,7 +7,6 @@ module pe.edu.upeu.sysventas {
     requires static lombok;
     requires jakarta.validation;
 
-<<<<<<< HEAD
 
     requires java.sql;
     requires java.naming;
@@ -20,8 +19,6 @@ module pe.edu.upeu.sysventas {
     requires com.github.librepdf.openpdf;
 
 
-=======
->>>>>>> ea262d381fc3af93599530def55fe13f027ea75e
     opens pe.edu.upeu.sysventas to javafx.fxml;
     opens pe.edu.upeu.sysventas.controller to javafx.fxml;
     exports pe.edu.upeu.sysventas;
